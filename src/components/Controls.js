@@ -34,7 +34,17 @@ export default function Controls({ tracks, setStart, setInCall }) {
     setInCall(false);
   };
   return (
-    <Grid container spacing={2} alignItems="center">
+    <Grid
+      container
+      spacing={2}
+      alignItems="center"
+      style={{
+        display: 'flex',
+        justifyContent: 'end',
+        gap: '10px',
+        padding: '10px',
+      }}
+    >
       <Grid item>
         <Button
           variant="contained"

@@ -12,7 +12,6 @@ function App() {
         height: '80vh',
         maxWidth: '800px',
         width: '100%',
-        outline: 'blue solid 1px',
         margin: '100px auto',
       }}
     >
