@@ -6,8 +6,10 @@ import {
   useMicrophoneAndCameraTracks,
   channelName,
 } from '../settings';
+import Controls from './Controls';
+import Video from './Video';
 
-export default function Call() {
+export default function VideoCall({ setInCall }) {
   const [users, setUsers] = useState([]);
   const [start, setStart] = useState(false);
   const client = useClient();
@@ -53,8 +55,14 @@ export default function Call() {
 
   return (
     <Grid container direction="column" style={{ height: '100%' }}>
-      <Grid item style={{ height: '5%' }}></Grid>
-      <Grid item style={{ height: '95%' }}></Grid>
+      <Grid item style={{ height: '5%' }}>
+        {ready && tracks && (
+          <Controls tracks={tracks} setStart={setStart} setInCall={setInCall} />
+        )}
+      </Grid>
+      <Grid item style={{ height: '95%' }}>
+        {start && tracks && <Video tracks={tracks} users={users} />}
+      </Grid>
     </Grid>
   );
 }

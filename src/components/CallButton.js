@@ -1,3 +1,9 @@
+import { Button } from '@material-ui/core';
+
 export default function CallButton({ setInCall }) {
-  return <button onClick={setInCall}>Call</button>;
+  return (
+    <Button variant="contained" color="primary" onClick={setInCall}>
+      Join Call
+    </Button>
+  );
 }
