@@ -14,10 +14,10 @@ export default function Controls({ tracks, setStart, setInCall }) {
   const mute = async (type) => {
     if (type === 'audio') {
       await tracks[0].setEnabled(!trackState.audio);
-      setTrackState((ps) => {
-        return { ...ps, audio: !ps.audio };
-      });
-    } else if (type === 'video') {
+      setTrackState((ps) => ({ ...ps, audio: !ps.audio }));
+    }
+
+    if (type === 'video') {
       await tracks[1].setEnabled(!trackState.video);
       setTrackState((ps) => {
         return { ...ps, video: !ps.video };
@@ -50,7 +50,7 @@ export default function Controls({ tracks, setStart, setInCall }) {
           color={trackState.video ? 'primary' : 'secondary'}
           onClick={() => mute('video')}
         >
-          {trackState.audio ? <VideocamIcon /> : <VideocamOffIcon />}
+          {trackState.video ? <VideocamIcon /> : <VideocamOffIcon />}
         </Button>
       </Grid>
       <Grid item>
