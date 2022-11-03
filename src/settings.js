@@ -11,5 +11,6 @@ export const config = {
   token,
 };
 
-export const client = createClient(config);
+export const useClient = createClient(config);
 export const useMicrophoneAndCameraTracks = createMicrophoneAndCameraTracks();
+export const channelName = 'Agora';

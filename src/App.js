@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import Call from './components/Call';
+import CallButton from './components/CallButton';
 
 function App() {
   const [inCall, setInCall] = useState(false);
 
   return (
     <div className="App">
-      {inCall ? <Call /> : <CallButton onClick={() => setInCall(true)} />}
+      {inCall ? <Call /> : <CallButton setInCall={() => setInCall(true)} />}
     </div>
   );
 }
